@@ -1,6 +1,6 @@
 # Input
-email <- "..." # fill in the mail address of your account
-password <- "..." # fill in the password of your account
+email <- "bastibrinkmann94@gmail.com" # fill in the mail address of your account
+password <- "123456789" # fill in the password of your account
 
 # Packages
 if (!require("devtools")){
@@ -27,6 +27,7 @@ if(!require(sf)){
   install.packages("sf")
   library(sf)
 }
+
 
 ################################ define functions ##################################
 
@@ -111,6 +112,7 @@ download.data <- function(initial_date){
     
     if(final_date == Sys.Date()) j <- 1
     
+    cat("\n")    
     cat("downloading: ", as.character(initial_date), "to", as.character(final_date))
     
     fogocruzado_this_step <- get_fogocruzado(initial_date = initial_date, final_date = final_date)
