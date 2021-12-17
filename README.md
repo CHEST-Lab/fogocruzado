@@ -168,7 +168,7 @@ Municipality’s population density
 Deaths_total
 </td>
 <td style="text-align:left;">
-Total number of people killed in the occurence
+Total number of people killed in the occurrence
 </td>
 </tr>
 <tr>
@@ -184,7 +184,7 @@ Number of civilians killed
 Deaths_security
 </td>
 <td style="text-align:left;">
-Number of security agends killed
+Number of security agents killed
 </td>
 </tr>
 <tr>
@@ -208,7 +208,7 @@ Number of males killed
 Injured_total
 </td>
 <td style="text-align:left;">
-Total number of people injured in the occurence
+Total number of people injured in the occurrence
 </td>
 </tr>
 <tr>
@@ -224,7 +224,7 @@ Number of civilians injured
 Injured_security
 </td>
 <td style="text-align:left;">
-Number of security agends injured
+Number of security agents injured
 </td>
 </tr>
 <tr>
@@ -253,7 +253,7 @@ Number of males injured
 Stray_bullets
 </td>
 <td style="text-align:left;">
-Has someone in the occurence been killed or injured by stray bullets?
+Has someone in the occurrence been killed or injured by stray bullets?
 </td>
 </tr>
 <tr>
@@ -402,7 +402,7 @@ Additional info
 </tr>
 <tr grouplength="7">
 <td colspan="2" style="background-color: #666; color: #fff;">
-<strong>Security agend and police raids</strong>
+<strong>Security agent and police raids</strong>
 </td>
 </tr>
 <tr>
@@ -410,7 +410,7 @@ Additional info
 Security_agent_present
 </td>
 <td style="text-align:left;">
-Was a security agend present in the occurence?
+Was a security agent present in the occurence?
 </td>
 </tr>
 <tr>
@@ -418,7 +418,7 @@ Was a security agend present in the occurence?
 Police_raid
 </td>
 <td style="text-align:left;">
-Has the gun shooting occured during a police raid?
+Has the gun shooting occurred during a police raid?
 </td>
 </tr>
 <tr>
@@ -442,7 +442,7 @@ Description of the police unit
 Police_raid__Vicitims_security
 </td>
 <td style="text-align:left;">
-Have security agends been shot?
+Have security agents been shot?
 </td>
 </tr>
 <tr>
@@ -450,7 +450,7 @@ Have security agends been shot?
 Police_raid__Deaths_security_info
 </td>
 <td style="text-align:left;">
-Additional info of injured security agend (On duty, out of service or
+Additional info of injured security agent (On duty, out of service or
 retired/fired)
 </td>
 </tr>
@@ -459,7 +459,7 @@ retired/fired)
 Police_raid__Injured_security_info
 </td>
 <td style="text-align:left;">
-Additional info of killed security agend (On duty, out of service or
+Additional info of killed security agent (On duty, out of service or
 retired/fired)
 </td>
 </tr>
@@ -473,7 +473,7 @@ retired/fired)
 Residential_building
 </td>
 <td style="text-align:left;">
-Were the gunfires shot inside houses or in backyards? Were they shot
+Was the gunfire shot inside houses or in backyards? Were they shot
 from outside the house but hit inside them?
 </td>
 </tr>
@@ -482,7 +482,7 @@ from outside the house but hit inside them?
 Residential_building__Deaths
 </td>
 <td style="text-align:left;">
-Number of people killed by gunfires inside residences
+Number of people killed by gunfire inside residences
 </td>
 </tr>
 <tr>
@@ -490,7 +490,7 @@ Number of people killed by gunfires inside residences
 Residential_building__Injured
 </td>
 <td style="text-align:left;">
-Number of people injured by gunfires inside residences
+Number of people injured by gunfire inside residences
 </td>
 </tr>
 <tr>
@@ -498,7 +498,7 @@ Number of people injured by gunfires inside residences
 Educational_facility
 </td>
 <td style="text-align:left;">
-Were the gunfires shot from inside educational units (day care centers,
+Were the gunfire shot from inside educational units (day care centers,
 schools and universities) or in their surroundings?
 </td>
 </tr>
@@ -528,7 +528,7 @@ Number of people injured in educational units or their surroundings
 Public_transport__Affected
 </td>
 <td style="text-align:left;">
-Has the public transport been interupted?
+Has the public transport been interrupted?
 </td>
 </tr>
 <tr>
