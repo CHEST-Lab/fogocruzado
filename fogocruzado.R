@@ -1,6 +1,6 @@
 # Input
 email <- "bastibrinkmann94@gmail.com" # fill in the mail address of your account
-password <- "123456789" # fill in the password of your account
+password <- "1234qwertz" # fill in the password of your account
 
 # Packages
 if (!require("devtools")){
@@ -139,27 +139,50 @@ cleanup <- function(fogocruzado_data){
   # Meta data
   meta_data <- fogocruzado_data[,c(1:2,5, 6, 3, 4, 12:13, 22, 15, 21, 20, 14, 16,  17:19)]
   names(meta_data) <- c("Event_ID", "Location", "Date", "Time", "Latitude", "Longitude",
-                        "State_ID", "City_ID", "State_IBGE_ID", "City_IBGE_ID", "State_UF", "State_name", "City_name", "Gentilico",  
+                        "State_ID", "City_ID", "State_IBGE_ID", "City_IBGE_ID", "State_UF", "State_name", "City_name", "City_gentilic",  
                         "City_pop", "City_area", "City_pop_den")
   meta_data$Date <- meta_data$Date %>% substr(., 1,10)
   
   # Event data
   event_data <- fogocruzado_data[,c(7:11, 23:ncol(fogocruzado_data))]
-  names(event_data) <- c("Security_agent_present",
-                         "Deaths_civil", "Deaths_security",
-                         "Injured_civil", "Injured_security",
-                         "Deaths_male", "Injured_male", "Deaths_female", "Injured_female",
-                         "Police_raid", "Police_raid__Deaths", "Police_raid__Police_unit", "Police_raid__Vicitims_security", "Police_raid__Deaths_security_info", "Police_raid__Injured_security_info",
-                         "Stray_bullets", "Stray_bullets__Deaths", "Stray_bullets__Injured",
-                         "Residential_building", "Residential_building__Deaths", "Residential_building__Injured",
-                         "Educational_facility", "Educational_facility__Deaths", "Educational_facility__Injured",
-                         "Child_under_12", "Child_under_12__Deaths", "Child_under_12__Deaths_info", "Child_under_12__Injured", "Child_under_12__Injured_info",
-                         "Adolecent_under_18", "Adolecent_under_18__Deaths", "Adolecent_under_18__Deaths_info", "Adolecent_under_18__Injured", "Adolecent_under_18__Injured_Info",
-                         "Old_over_60", "Old_over_60__Deaths", "Old_over_60__Deaths_info", "Old_over_60__Injured", "Old_over_60__Injured_info",
-                         "Public_transport__Affected", "Public_transport__Vehicle_info", "Public_transport__Interrupted", "Public_transport__Released",
-                         "Traffic_route__Affected", "Traffic_route__Info", "Traffic_route__Interrupted", "Traffic_route__Released",
-                         "Additional_info",
-                         "Principal_motive", "Complementary_motive")
+  names(event_data) <- c(
+    # 7:11
+    "Security_agent_present", "Deaths_civil", "Deaths_security", "Injured_civil", "Injured_security",
+    
+    # 23:26
+    "Deaths_male", "Injured_male", "Deaths_female", "Injured_female",
+    
+    # 27:32
+    "Police_raid", "Police_raid__Deaths", "Police_raid__Police_unit", 
+    "Police_raid__Vicitims_security", "Police_raid__Deaths_security_info", "Police_raid__Injured_security_info",
+    
+    # 33:35
+    "Stray_bullets", "Stray_bullets__Deaths", "Stray_bullets__Injured",
+    
+    # 36:38
+    "Residential_building", "Residential_building__Deaths", "Residential_building__Injured",
+    
+    # 39:41
+    "Educational_facility", "Educational_facility__Deaths", "Educational_facility__Injured",
+    
+    # 42:46
+    "Child_under_12", "Child_under_12__Deaths", "Child_under_12__Deaths_info", "Child_under_12__Injured", "Child_under_12__Injured_info",
+    
+    # 47:51
+    "Adolecent_under_18", "Adolecent_under_18__Deaths", "Adolecent_under_18__Deaths_info", "Adolecent_under_18__Injured", "Adolecent_under_18__Injured_Info",
+    
+    # 52:56
+    "Old_over_60", "Old_over_60__Deaths", "Old_over_60__Deaths_info", "Old_over_60__Injured", "Old_over_60__Injured_info",
+    
+    # 57:60
+    #"Public_transport__Affected", "Public_transport__Vehicle_info", "Public_transport__Interrupted", "Public_transport__Released",
+    
+    # 61:64
+    "Traffic_route__Affected", "Traffic_route__Info", "Traffic_route__Interrupted", "Traffic_route__Released",
+    
+    # 65:67
+    "Additional_info", "Principal_motive", "Complementary_motive"
+  )
   
   
   fogocruzado_final <- data.frame(meta_data, event_data)
@@ -184,7 +207,8 @@ save.gpkg <- function(fogocruzado_all){
       "Police_raid", "Police_raid__Vicitims_security", 
       "Stray_bullets", "Residential_building", "Educational_facility", 
       "Child_under_12", "Adolecent_under_18", "Old_over_60", 
-      "Public_transport__Affected", "Traffic_route__Affected"
+      #"Public_transport__Affected", "Traffic_route__Affected"
+      "Traffic_route__Affected"
     ), funs(!is.na(.))) %>%
     
     # Convert to factor
@@ -195,9 +219,9 @@ save.gpkg <- function(fogocruzado_all){
     # Convert to DateTime
     mutate(Date = lubridate::ymd(Date),
            Time = replace(Time, Time == "0:00:00", NA),
-           Public_transport__Interruption_hours = difftime(ymd_hms(Public_transport__Released),
-                                                           ymd_hms(Public_transport__Interrupted), 
-                                                           units="hours") %>% as.numeric(),
+           #Public_transport__Interruption_hours = difftime(ymd_hms(Public_transport__Released),
+           #                                                ymd_hms(Public_transport__Interrupted), 
+           #                                                units="hours") %>% as.numeric(),
            Traffic_route__Interruption_hours = difftime(ymd_hms(Traffic_route__Released),
                                                         ymd_hms(Traffic_route__Interrupted), 
                                                         units="hours") %>% as.numeric()
@@ -234,7 +258,7 @@ save.gpkg <- function(fogocruzado_all){
       Educational_facility, Educational_facility__Deaths, Educational_facility__Injured,
       
       # Public transport and road traffic affected
-      Public_transport__Affected, Public_transport__Vehicle_info, Public_transport__Interrupted, Public_transport__Released, Public_transport__Interruption_hours,
+      #Public_transport__Affected, Public_transport__Vehicle_info, Public_transport__Interrupted, Public_transport__Released, Public_transport__Interruption_hours,
       Traffic_route__Affected, Traffic_route__Info, Traffic_route__Interrupted, Traffic_route__Released, Traffic_route__Interruption_hours,
       
       # Additional info
@@ -277,7 +301,7 @@ if(!is.data.frame(fogocruzado_backup)){
   # First download - get everything from start date until now
   fogocruzado_all <- download.data(initial_date) %>% cleanup()
   
-}else{
+} else{
   
   # update backup
   update.backup(fogocruzado_backup) -> fogocruzado_backup_updated
