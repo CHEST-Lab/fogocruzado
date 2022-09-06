@@ -1,8 +1,3 @@
----
-editor_options: 
-  markdown: 
-    wrap: 72
----
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
@@ -38,7 +33,7 @@ read_sf("https://bit.ly/3B5hKA3")
 The data include the following information for each shooting:
 
 | Variable Name                                  | Description                                                                                                                |
-|:----------------------------------|:----------------------------------|
+|:-----------------------------------|:-----------------------------------|
 | **Generall information**                       |                                                                                                                            |
 | Event_ID                                       | Occurrence's ID                                                                                                            |
 | Location                                       | Occurrence's address                                                                                                       |
