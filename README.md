@@ -1,11 +1,8 @@
-README
+Fogo Cruzado
 ================
-Sebastian Brinkmann
 September 07, 2022
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-
-# Fogo Cruzado
 
 <!-- badges: start -->
 
